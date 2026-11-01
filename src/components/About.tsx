@@ -11,9 +11,11 @@ export function About() {
         </SectionTitle>
 
         <div className="min-w-0 flex-[2_1_480px]">
-          <p {...reveal(1)} className="text-lg leading-relaxed text-pretty text-graphite sm:text-[19px]">
-            {about}
-          </p>
+          <div {...reveal(1)} className="space-y-5 text-lg leading-relaxed text-pretty text-graphite sm:text-[19px]">
+            {about.map((paragraph) => (
+              <p key={paragraph}>{paragraph}</p>
+            ))}
+          </div>
 
           <div {...reveal(2)}>
             <h3 className="sr-only">Tecnologias</h3>

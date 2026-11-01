@@ -142,8 +142,11 @@ export const education = {
   note: 'Trabalho de graduação: VEEZ, aprovado com nota 9,0.',
 }
 
-export const about =
-  'Trabalho com PHP e Laravel na J2K Sistemas, onde entrei como estagiário em janeiro de 2026 e passei a desenvolvedor full stack em junho. Fora do trabalho, uso projetos próprios como o Taskly e o Elo para praticar modelagem de dados, regras de negócio e testes.'
+// Cada item é um parágrafo da seção Sobre.
+export const about = [
+  'Comecei a estudar desenvolvimento web em 2021, pelo front-end. Na faculdade de Análise e Desenvolvimento de Sistemas passei para o full stack, e na J2K Sistemas isso virou trabalho: entrei como estagiário em janeiro de 2026 e fui efetivado como desenvolvedor full stack em junho.',
+  'Fora do expediente, uso projetos próprios para ir além do dia a dia. No Taskly, aprofundo Laravel e Livewire em um sistema completo de tarefas e chamados. No Elo, separo uma API em Laravel de uma interface em Next.js, com testes em PHPUnit e Playwright. E o VEEZ, app em React Native, foi meu trabalho de graduação, aprovado com nota 9,0.',
+]
 
 export const skills = [
   { group: 'Back-end', items: 'PHP, Laravel, Node.js' },
