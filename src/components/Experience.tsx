@@ -18,6 +18,9 @@ export function Experience() {
             <p className="text-[15px] text-fog">{experience.company}</p>
             <h3 className="mt-2.5 text-3xl leading-[1.05] font-bold sm:text-[40px]">{experience.current.title}</h3>
             <p className="mt-2 text-lg text-mist">{experience.current.period}</p>
+            <p className="mt-4 inline-block rounded-lg border border-edge px-3 py-1.5 text-[15px] text-sky">
+              {experience.team}
+            </p>
             <ul className="mt-7 list-disc pl-5 leading-8 text-mist">
               {experience.responsibilities.map((item) => (
                 <li key={item}>{item}</li>
@@ -63,19 +66,19 @@ export function Experience() {
           </article>
         </div>
 
-        <div id="sites-j2k" className="mt-16">
+        <div id="sites-j2k" className="mt-16 scroll-mt-28">
           <div {...reveal(0)}>
             <h3 className="text-2xl font-bold sm:text-[28px]">{experience.sites.title}</h3>
             <p className="mt-2 max-w-[640px] leading-relaxed text-pretty text-fog">{experience.sites.intro}</p>
           </div>
 
-          <div className="mt-8 grid grid-cols-1 gap-6 md:grid-cols-2">
+          <div className="mt-8 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
             {experience.sites.items.map((site, index) => (
               <article
                 key={site.id}
                 {...reveal(index + 1)}
                 aria-labelledby={`site-${site.id}`}
-                className="min-w-0 overflow-hidden rounded-[20px] border border-edge bg-panel"
+                className="flex min-w-0 flex-col overflow-hidden rounded-[20px] border border-edge bg-panel"
               >
                 <a href={site.link.href} target="_blank" rel="noopener noreferrer" tabIndex={-1} aria-hidden="true">
                   <img
@@ -88,7 +91,8 @@ export function Experience() {
                     className="block aspect-[16/10] w-full border-b border-edge object-cover object-top"
                   />
                 </a>
-                <div className="p-6 sm:p-8">
+                {/* Mesma estrutura nos três cartões: descrição no meio e stack presa embaixo, alinhada entre eles. */}
+                <div className="flex flex-1 flex-col p-6 sm:p-7">
                   <h4 id={`site-${site.id}`} className="text-xl font-bold">
                     {site.name}
                   </h4>
@@ -97,8 +101,8 @@ export function Experience() {
                       {site.link.label}
                     </TextLink>
                   </p>
-                  <p className="mt-4 text-[15px] leading-relaxed text-pretty text-mist">{site.summary}</p>
-                  <p className="mt-4 text-sm text-fog">{site.stack}</p>
+                  <p className="mt-4 flex-1 text-[15px] leading-relaxed text-pretty text-mist">{site.summary}</p>
+                  <p className="mt-6 border-t border-edge pt-4 text-sm text-fog">{site.stack}</p>
                 </div>
               </article>
             ))}

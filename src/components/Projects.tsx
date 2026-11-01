@@ -1,4 +1,4 @@
-import { useState, type CSSProperties } from 'react'
+import { useEffect, useState, type CSSProperties } from 'react'
 import { Minus, Plus } from 'lucide-react'
 import { featuredProject, otherProjects, projectsIntro, type Image, type Project } from '../content'
 import { reveal } from '../reveal'
@@ -37,7 +37,7 @@ function FeaturedProject({ project }: { project: Project }) {
     >
       <div className="min-w-0 flex-[2_1_320px]">
         {project.status && <p className="text-[15px] text-sky">{project.status}</p>}
-        <h3 id={`projeto-${project.id}`} className="mt-2.5 text-5xl leading-none font-bold sm:text-[56px]">
+        <h3 id={`projeto-${project.id}`} className="mt-2.5 scroll-mt-40 text-5xl leading-none font-bold sm:text-[56px]">
           {project.name}
         </h3>
         <p className="mt-4.5 text-[17px] leading-relaxed text-pretty text-mist">{project.summary}</p>
@@ -68,6 +68,25 @@ function FeaturedProject({ project }: { project: Project }) {
 function ProjectRow({ project, defaultOpen }: { project: Project; defaultOpen: boolean }) {
   const [open, setOpen] = useState(defaultOpen)
   const detailsId = `detalhes-${project.id}`
+
+  // Abre os detalhes quando alguém chega pelo link do projeto (#projeto-id), de outra seção ou direto na URL.
+  useEffect(() => {
+    const hash = `#projeto-${project.id}`
+    if (window.location.hash === hash) setOpen(true)
+    const onHashChange = () => {
+      if (window.location.hash === hash) setOpen(true)
+    }
+    // Cobre também o segundo clique no mesmo link, quando o hash já é o mesmo e não muda.
+    const onClick = (event: MouseEvent) => {
+      if ((event.target as Element | null)?.closest?.(`a[href="${hash}"]`)) setOpen(true)
+    }
+    window.addEventListener('hashchange', onHashChange)
+    document.addEventListener('click', onClick)
+    return () => {
+      window.removeEventListener('hashchange', onHashChange)
+      document.removeEventListener('click', onClick)
+    }
+  }, [project.id])
   const Icon = open ? Minus : Plus
   const images = project.images ?? []
 
@@ -77,7 +96,7 @@ function ProjectRow({ project, defaultOpen }: { project: Project; defaultOpen: b
       <div className="flex flex-wrap items-center gap-x-10 gap-y-4">
         <h3
           id={`projeto-${project.id}`}
-          className="flex-[1_1_220px] text-4xl leading-[1.05] font-bold sm:text-[44px]"
+          className="flex-[1_1_220px] scroll-mt-32 text-4xl leading-[1.05] font-bold sm:text-[44px]"
         >
           {project.name}
         </h3>

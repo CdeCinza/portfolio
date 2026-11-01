@@ -33,7 +33,7 @@ export const profile = {
   shortName: 'Matheus Vieira',
   role: 'Desenvolvedor PHP/Laravel Full Stack',
   intro:
-    'Crio sistemas web com PHP, Laravel e Livewire na J2K Sistemas, cuidando do banco de dados, das regras de negócio e das telas.',
+    'Faço parte do time de desenvolvimento do SNDesk, software de atendimento da J2K Sistemas, onde trabalho do back-end à interface em novas funcionalidades, dashboards e melhorias do sistema.',
   email: 'matheusmarques9096@gmail.com',
   location: 'Itapetininga, SP',
   // Gerado por `npm run curriculo` a partir de curriculo/curriculo.html
@@ -130,8 +130,9 @@ export const otherProjects: Project[] = [
 export const experience = {
   company: 'J2K Sistemas, Itapetininga',
   current: { title: 'Desenvolvedor Full Stack', period: 'Junho de 2026 até hoje' } satisfies Role,
+  team: 'Time de desenvolvimento do SNDesk, software de atendimento da J2K',
   responsibilities: [
-    'Desenvolvimento de funcionalidades, telas e dashboards em PHP e Laravel',
+    'Desenvolvimento de funcionalidades, telas e dashboards do SNDesk em PHP e Laravel',
     'Rotas, controllers e validações',
     'Integração com banco de dados',
     'Correções e melhorias nos sistemas da empresa',
@@ -149,14 +150,14 @@ export const experience = {
   // Trabalhos públicos feitos na empresa. Só o que está no ar; nada de código ou painel interno.
   sites: {
     title: 'Sites que desenvolvi na J2K',
-    intro: 'Para o SNDesk, software de atendimento da J2K. Os dois estão no ar e são usados pela empresa.',
+    intro: 'Além do trabalho no SNDesk, desenvolvi estes sites para produtos da empresa. Todos estão no ar.',
     items: [
       {
         id: 'sndesk-landing',
         name: 'Landing page do SNDesk',
         link: { label: 'lp.sndesk.com.br', href: 'https://lp.sndesk.com.br' },
         summary:
-          'Site de marketing e captação de leads, com páginas por segmento e por funcionalidade, formulários de demonstração em etapas, WhatsApp e página de LGPD para pedido de remoção de dados. Sistema de design próprio em CSS e deploy automático a cada envio ao GitHub.',
+          'Site de marketing e captação de leads, com páginas por segmento e funcionalidade, formulários de demonstração em etapas, WhatsApp, página de LGPD e deploy automático a cada envio ao GitHub.',
         stack: 'Laravel, Blade, CSS próprio, Laravel Mix',
         image: { src: '/projects/sndesk-landing.jpg', alt: 'Página inicial da landing page do SNDesk' },
       },
@@ -168,6 +169,15 @@ export const experience = {
           'CMS feito do zero: painel de posts, temas e usuários, editor com rascunho automático, comentários, curtidas, avaliações, newsletter e perfis com endereço preenchido pela ViaCEP.',
         stack: 'Laravel, MySQL, Blade, Bootstrap 5, Quill',
         image: { src: '/projects/sndesk-blog.jpg', alt: 'Página inicial do blog do SNDesk' },
+      },
+      {
+        id: 'sonoda-ponto',
+        name: 'Site da Sonoda Ponto',
+        link: { label: 'sonodaponto.com.br', href: 'https://sonodaponto.com.br' },
+        summary:
+          'Site do sistema de ponto digital, com páginas de produto, planos e formulário de cotação. Inclui a Central do RH: calculadoras de horas, horas extras, férias e 13º salário, simulador de rescisão, testes de perfil e gerador de recibos.',
+        stack: 'Laravel, Blade, JavaScript',
+        image: { src: '/projects/sonoda-central-rh.jpg', alt: 'Central do RH da Sonoda Ponto, com calculadora de horas e outras ferramentas' },
       },
     ],
   },
@@ -194,7 +204,7 @@ export const education = {
 
 // Cada item é um parágrafo da seção Sobre.
 export const about = [
-  'Comecei a estudar desenvolvimento web em 2021, pelo front-end. Na faculdade de Análise e Desenvolvimento de Sistemas passei para o full stack, e na J2K Sistemas isso virou trabalho: entrei como estagiário em janeiro de 2026 e fui efetivado como desenvolvedor full stack em junho.',
+  'Comecei a estudar desenvolvimento web em 2021, pelo front-end. Na faculdade de Análise e Desenvolvimento de Sistemas passei para o full stack, e na J2K Sistemas isso virou trabalho: entrei como estagiário em janeiro de 2026, fui efetivado como desenvolvedor full stack em junho e hoje faço parte do time que desenvolve o SNDesk.',
   'Fora do expediente, uso projetos próprios para ir além do dia a dia. No Taskly, aprofundo Laravel e Livewire em um sistema completo de tarefas e chamados. No Elo, separo uma API em Laravel de uma interface em Next.js, com testes em PHPUnit e Playwright. E o VEEZ, app em React Native, foi meu trabalho de graduação, aprovado com nota 9,0.',
 ]
 
