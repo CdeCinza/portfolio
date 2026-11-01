@@ -1,0 +1,127 @@
+@import '@fontsource-variable/onest';
+@import 'tailwindcss';
+
+@theme {
+  --font-sans: 'Onest Variable', system-ui, sans-serif;
+
+  /* Seções escuras */
+  --color-ink: #11151b;
+  --color-panel: #182029;
+  --color-edge: #29323d;
+  --color-edge-soft: #222a34;
+  --color-edge-strong: #36404c;
+  --color-snow: #edf0f3;
+  --color-mist: #c6cdd6;
+  --color-fog: #a3adb9;
+  --color-sky: #5aa2ff;
+  --color-sky-soft: #9cc7ff;
+  --color-sky-ink: #071a33;
+
+  /* Seções claras */
+  --color-paper: #eef1f4;
+  --color-paper-deep: #e3e8ed;
+  --color-rule: #d3d9e0;
+  --color-graphite: #2b333d;
+  --color-slate: #3e4752;
+  --color-slate-soft: #56606c;
+  --color-cobalt: #1f5fd6;
+  --color-cobalt-deep: #16479f;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    @apply bg-ink font-sans text-snow antialiased;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-sky);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  .on-light :focus-visible {
+    outline-color: var(--color-cobalt);
+  }
+
+  .on-accent :focus-visible {
+    outline-color: #fff;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/*
+ * Entradas ao rolar (src/reveal.ts): cada uma toca inteira, uma vez, quando o elemento entra na tela.
+ * Só existem com JavaScript ativo (classe .js no <html>) e sem preferência por movimento reduzido.
+ */
+@media (prefers-reduced-motion: no-preference) {
+  .js [data-reveal='fade'] {
+    opacity: 0;
+    transform: translateY(18px);
+    transition:
+      opacity 550ms ease-out,
+      transform 550ms ease-out;
+    transition-delay: calc(var(--reveal-order, 0) * 90ms);
+  }
+
+  /* Título sobe de dentro de uma máscara. */
+  .js [data-reveal='title'] .fx-title-line {
+    transform: translateY(110%);
+    transition: transform 750ms ease-out;
+  }
+
+  /* Divisória se desenha da esquerda para a direita. */
+  .js [data-reveal='line'] {
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 900ms ease-out;
+    transition-delay: 150ms;
+  }
+
+  .js [data-reveal][data-revealed],
+  .js [data-reveal][data-revealed] .fx-title-line {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/*
+ * Efeitos presos à rolagem (src/scroll.ts). Só valem com a classe .scroll-fx no <html>,
+ * que não é aplicada com movimento reduzido. A transição curta suaviza os saltos da roda do mouse.
+ */
+
+/* Hero sobe e esmaece enquanto sai da tela, em ritmos diferentes. */
+.scroll-fx [data-fx='hero'] .fx-hero-main {
+  transform: translateY(calc(var(--p, 0) * -110px));
+  opacity: calc(1 - var(--p, 0) * 0.9);
+  transition:
+    transform 140ms linear,
+    opacity 140ms linear;
+}
+.scroll-fx [data-fx='hero'] .fx-hero-facts {
+  transform: translateY(calc(var(--p, 0) * -40px));
+  opacity: calc(1 - var(--p, 0) * 0.9);
+  transition:
+    transform 140ms linear,
+    opacity 140ms linear;
+}
+
+/* Barra de progresso da página, no rodapé do cabeçalho. */
+.fx-progress {
+  display: none;
+}
+.scroll-fx .fx-progress {
+  display: block;
+  transform: scaleX(var(--page-progress, 0));
+  transform-origin: left;
+}

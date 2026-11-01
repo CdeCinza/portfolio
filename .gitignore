@@ -1,0 +1,12 @@
+node_modules
+dist
+dist-ssr
+.vercel
+*.local
+
+# Configuração local do Claude Code (skills e servidor de prévia)
+.claude/
+
+# Dados pessoais e a versão completa do currículo ficam só no computador
+curriculo/privado.json
+curriculo/*.pdf

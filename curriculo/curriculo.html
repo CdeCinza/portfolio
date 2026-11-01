@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Currículo - Matheus Marques Fernandes Vieira</title>
+<meta name="author" content="Matheus Marques Fernandes Vieira">
+<style>
+  @page { size: A4; margin: 11mm 14mm 10mm; }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 9.4pt;
+    line-height: 1.38;
+    color: #1f2328;
+  }
+  a { color: #1f5fd6; text-decoration: none; }
+  h1 { margin: 0; font-size: 21pt; letter-spacing: 0.02em; color: #111a24; }
+  .role { margin: 2pt 0 5pt; font-size: 11.5pt; font-weight: bold; color: #111a24; }
+  .contact { margin: 0; color: #3a4552; }
+  .contact b { color: #111a24; }
+  header { padding-bottom: 7pt; border-bottom: 1.6pt solid #111a24; }
+  h2 {
+    margin: 9pt 0 4pt;
+    padding-bottom: 2pt;
+    font-size: 11pt;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    color: #111a24;
+    border-bottom: 0.6pt solid #c9d1da;
+  }
+  p { margin: 0; }
+  .item { margin-bottom: 5pt; break-inside: avoid; }
+  .item:last-child { margin-bottom: 0; }
+  .head { display: flex; justify-content: space-between; gap: 12pt; font-weight: bold; color: #111a24; }
+  .when { white-space: nowrap; color: #3a4552; }
+  ul { margin: 2pt 0 0; padding-left: 13pt; }
+  li { margin: 1pt 0; }
+  .meta { margin-top: 2pt; color: #3a4552; }
+  .meta b { color: #111a24; }
+  .skills { display: grid; grid-template-columns: 112pt 1fr; gap: 2.5pt 8pt; }
+  .skills dt { font-weight: bold; color: #111a24; }
+  .skills dd { margin: 0; }
+</style>
+</head>
+<body>
+<header>
+  <h1>MATHEUS MARQUES FERNANDES VIEIRA</h1>
+  <p class="role">Desenvolvedor PHP/Laravel Full Stack</p>
+  <p class="contact">
+    <!-- O telefone vem de curriculo/privado.json (fora do git) e só entra na versão completa. -->
+    <span data-private><b>Telefone:</b> <span data-field="telefones"></span> &nbsp;|&nbsp; </span>Itapetininga - SP &nbsp;|&nbsp;
+    <b>E-mail:</b> <a href="mailto:matheusmarques9096@gmail.com">matheusmarques9096@gmail.com</a>
+  </p>
+  <p class="contact">
+    <b>LinkedIn:</b> <a href="https://www.linkedin.com/in/matheus-marques-fernandes-vieiracln/">linkedin.com/in/matheus-marques-fernandes-vieiracln</a>
+    &nbsp;|&nbsp; <b>GitHub:</b> <a href="https://github.com/CdeCinza">github.com/CdeCinza</a>
+  </p>
+</header>
+
+<h2>Resumo profissional</h2>
+<p>
+  Desenvolvedor PHP/Laravel Full Stack na J2K Sistemas, com experiência prática na criação, manutenção e evolução de
+  sistemas web. Trabalho no ecossistema Laravel (Livewire, Blade, Eloquent ORM e MySQL) e tenho projetos com React,
+  Next.js, Node.js e React Native. Formado em Análise e Desenvolvimento de Sistemas pela FATEC Itapetininga.
+</p>
+
+<h2>Experiência profissional</h2>
+<div class="item">
+  <div class="head"><span>J2K Sistemas — Desenvolvedor Full Stack</span><span class="when">06/2026 - Atual</span></div>
+  <ul>
+    <li>Desenvolvimento de funcionalidades ponta a ponta (telas, dashboards, rotas, controllers e regras de negócio) com PHP 8 e Laravel.</li>
+    <li>Modelagem e manipulação de dados relacionais com MySQL e Eloquent ORM, e interfaces reativas com Blade e Livewire.</li>
+    <li>Análise de causa-raiz, correção de bugs, refatoração e implementação de validações.</li>
+  </ul>
+</div>
+<div class="item">
+  <div class="head"><span>J2K Sistemas — Estagiário de Desenvolvimento Web</span><span class="when">01/2026 - 07/2026</span></div>
+  <ul>
+    <li>Apoio no desenvolvimento e na sustentação de sistemas web em ambiente ágil.</li>
+    <li>Correção de bugs, suporte técnico e evolução de funcionalidades existentes, com versionamento em Git.</li>
+  </ul>
+</div>
+
+<h2>Formação acadêmica</h2>
+<div class="item">
+  <div class="head"><span>Análise e Desenvolvimento de Sistemas — FATEC Itapetininga</span><span class="when">08/2023 - 08/2026</span></div>
+  <p>Curso concluído. Trabalho de graduação: VEEZ, aplicativo de transporte escolar, aprovado com nota 9,0.</p>
+</div>
+
+<h2>Habilidades técnicas</h2>
+<dl class="skills">
+  <dt>Back-end</dt><dd>PHP, Laravel, Node.js, Eloquent ORM, APIs REST, MVC</dd>
+  <dt>Front-end</dt><dd>Livewire, Blade, Alpine.js, JavaScript, TypeScript, React, Next.js, Tailwind CSS, Bootstrap</dd>
+  <dt>Mobile</dt><dd>React Native</dd>
+  <dt>Banco de dados</dt><dd>MySQL, PostgreSQL, modelagem relacional, SQL</dd>
+  <dt>Testes e ferramentas</dt><dd>PHPUnit, Playwright, Git, GitHub, Composer, NPM, Vite</dd>
+</dl>
+
+<h2>Projetos em destaque</h2>
+<div class="item">
+  <div class="head"><span>Taskly — Gestão de tarefas, Kanban, agenda e central de chamados</span></div>
+  <p>
+    Aplicação web com quadro Kanban com arrastar e soltar e ordem salva no banco, dashboard de indicadores, central de
+    chamados com prioridade e controle de SLA, subtarefas, agenda, relatórios, anexos e autenticação com dados isolados
+    por usuário.
+  </p>
+  <p class="meta">
+    <b>Stack:</b> PHP 8.3, Laravel 13, Livewire 4, MySQL, Alpine.js, Tailwind CSS, Vite &nbsp;|&nbsp;
+    <b>GitHub:</b> <a href="https://github.com/CdeCinza/TaskManager">github.com/CdeCinza/TaskManager</a>
+  </p>
+</div>
+<div class="item">
+  <div class="head"><span>ELO Gastronomia — Operação e gestão para restaurantes (em desenvolvimento)</span></div>
+  <p>
+    Conecta o fluxo do restaurante: pedidos pelo tablet da mesa, fila de preparo na cozinha, comanda e fechamento no
+    caixa, com baixa de estoque por ficha técnica. API REST versionada com Sanctum, perfis de acesso por função,
+    pagamento com Stripe em ambiente de testes e testes em PHPUnit e Playwright.
+  </p>
+  <p class="meta">
+    <b>Stack:</b> PHP 8.5, Laravel 13, MySQL, Next.js, React, TypeScript, Tailwind CSS &nbsp;|&nbsp;
+    <b>GitHub:</b> <a href="https://github.com/CdeCinza/Elo">github.com/CdeCinza/Elo</a>
+  </p>
+</div>
+<div class="item">
+  <div class="head"><span>VEEZ — Aplicativo de transporte escolar (trabalho de graduação)</span><span class="when">02/2026 - 06/2026</span></div>
+  <p>
+    App mobile para motoristas, pais e alunos, desenvolvido em equipe de três pessoas: rastreamento da rota em tempo
+    real, chat individual e em grupo e pagamento de mensalidades por Pix e cartão. Aprovado com nota 9,0.
+  </p>
+  <p class="meta">
+    <b>Stack:</b> React Native (Expo), TypeScript, Node.js, PostgreSQL (Supabase), Stripe, Mapbox
+  </p>
+</div>
+
+<h2>Cursos complementares</h2>
+<div class="item">
+  <div class="head"><span>Desenvolvimento Web Avançado com PHP, Laravel e Vue.js — Udemy (Jorge Sant Ana)</span><span class="when">2026</span></div>
+  <p>Carga horária: 57 horas. Recursos avançados de PHP, ecossistema Laravel e front-end reativo.</p>
+</div>
+</body>
+</html>
