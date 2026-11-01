@@ -24,9 +24,13 @@ export function Header() {
           {profile.shortName}
         </a>
 
-        <nav aria-label="Seções" className="hidden items-center gap-7 text-[15px] md:flex">
+        <nav aria-label="Seções" className="hidden items-center gap-3 text-[15px] md:flex lg:gap-5">
           {navigation.map((item) => (
-            <a key={item.href} href={item.href} className="text-fog transition-colors duration-150 hover:text-snow">
+            <a
+              key={item.href}
+              href={item.href}
+              className="px-2 py-2.5 text-fog transition-colors duration-150 hover:text-snow"
+            >
               {item.label}
             </a>
           ))}
