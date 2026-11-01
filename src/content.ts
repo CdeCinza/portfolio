@@ -32,6 +32,8 @@ export const profile = {
   name: 'Matheus Marques Fernandes Vieira',
   shortName: 'Matheus Vieira',
   role: 'Desenvolvedor PHP/Laravel Full Stack',
+  intro:
+    'Crio sistemas web com PHP, Laravel e Livewire na J2K Sistemas, cuidando do banco de dados, das regras de negócio e das telas.',
   email: 'matheusmarques9096@gmail.com',
   location: 'Itapetininga, SP',
   // Gerado por `npm run curriculo` a partir de curriculo/curriculo.html
@@ -41,6 +43,7 @@ export const profile = {
   linkedin: 'https://www.linkedin.com/in/matheus-marques-fernandes-vieiracln/',
   facts: [
     { label: 'Atualmente', value: 'Desenvolvedor full stack na J2K Sistemas' },
+    { label: 'Stack principal', value: 'PHP, Laravel, Livewire e MySQL' },
     { label: 'Formação', value: 'Análise e Desenvolvimento de Sistemas, FATEC Itapetininga' },
     { label: 'Local', value: 'Itapetininga, SP' },
   ],
