@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, type CSSProperties } from 'react'
 import { Minus, Plus } from 'lucide-react'
 import { featuredProject, otherProjects, projectsIntro, type Image, type Project } from '../content'
 import { reveal } from '../reveal'
@@ -95,7 +95,8 @@ function ProjectRow({ project, defaultOpen }: { project: Project; defaultOpen: b
         </button>
       </div>
 
-      <div id={detailsId} hidden={!open} className="mt-7">
+      {/* Ao abrir, o conteúdo entra com um fade curto (ver .project-details em index.css). */}
+      <div id={detailsId} hidden={!open} className="project-details mt-7">
         <div className="flex flex-wrap gap-8">
           {images.length > 0 && (
             <figure className="m-0 min-w-0 flex-[3_1_480px]">
@@ -105,7 +106,10 @@ function ProjectRow({ project, defaultOpen }: { project: Project; defaultOpen: b
               )}
             </figure>
           )}
-          <div className={`min-w-0 ${images.length > 0 ? 'flex-[2_1_300px]' : 'flex-1 sm:columns-2 sm:gap-12'}`}>
+          <div
+            className={`fx-details-text min-w-0 ${images.length > 0 ? 'flex-[2_1_300px]' : 'flex-1 sm:columns-2 sm:gap-12'}`}
+            style={{ '--i': 1 } as CSSProperties}
+          >
             <ul className="list-disc pl-5 leading-8 text-slate">
               {project.highlights.map((item) => (
                 <li key={item}>{item}</li>
@@ -138,11 +142,11 @@ function DesktopGallery({ images }: { images: Image[] }) {
   const [cover, ...extras] = images
   return (
     <>
-      <Screenshot image={cover} border="border-rule" />
+      <Screenshot image={cover} border="border-rule" order={0} />
       {extras.length > 0 && (
         <div className="mt-3 grid grid-cols-2 gap-3">
-          {extras.map((image) => (
-            <Screenshot key={image.src} image={image} border="border-rule" />
+          {extras.map((image, index) => (
+            <Screenshot key={image.src} image={image} border="border-rule" order={index + 1} />
           ))}
         </div>
       )}
@@ -153,20 +157,33 @@ function DesktopGallery({ images }: { images: Image[] }) {
 function PhoneGallery({ images }: { images: Image[] }) {
   return (
     <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
-      {images.map((image) => (
-        <Screenshot key={image.src} image={image} border="border-rule" format="phone" />
+      {images.map((image, index) => (
+        <Screenshot key={image.src} image={image} border="border-rule" format="phone" order={index} />
       ))}
     </div>
   )
 }
 
-type ScreenshotProps = { image: Image; border: string; className?: string; format?: 'desktop' | 'phone' }
+type ScreenshotProps = {
+  image: Image
+  border: string
+  className?: string
+  format?: 'desktop' | 'phone'
+  // Posição na galeria: escalona a entrada quando os detalhes abrem.
+  order?: number
+}
 
 // Abre a imagem em tamanho real numa nova aba, para quem quiser ver os detalhes da tela.
-function Screenshot({ image, border, className = '', format = 'desktop' }: ScreenshotProps) {
+function Screenshot({ image, border, className = '', format = 'desktop', order = 0 }: ScreenshotProps) {
   const size = format === 'phone' ? { width: 780, height: 1688, ratio: 'aspect-[390/844] rounded-2xl' } : { width: 1440, height: 900, ratio: 'aspect-[16/10] rounded-xl' }
   return (
-    <a href={image.src} target="_blank" rel="noopener" className={`block min-w-0 ${className}`}>
+    <a
+      href={image.src}
+      target="_blank"
+      rel="noopener"
+      className={`fx-shot block min-w-0 ${className}`}
+      style={{ '--i': order } as CSSProperties}
+    >
       <img
         src={image.src}
         alt={image.alt}

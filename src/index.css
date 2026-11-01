@@ -93,6 +93,23 @@
     opacity: 1;
     transform: none;
   }
+
+  /*
+   * Detalhes dos projetos: ao abrir, imagens e texto entram com um fade curto, um depois do outro.
+   * A animação reinicia sozinha toda vez que o bloco deixa de estar oculto. A altura não é animada.
+   */
+  .project-details:not([hidden]) .fx-shot,
+  .project-details:not([hidden]) .fx-details-text {
+    animation: details-in 360ms ease-out both;
+    animation-delay: calc(var(--i, 0) * 70ms);
+  }
+}
+
+@keyframes details-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
 }
 
 /*
