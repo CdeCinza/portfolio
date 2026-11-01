@@ -52,6 +52,11 @@
   .on-accent :focus-visible {
     outline-color: #fff;
   }
+
+  ::selection {
+    background-color: var(--color-sky);
+    color: var(--color-sky-ink);
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
