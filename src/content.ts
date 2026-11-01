@@ -25,6 +25,7 @@ export type Project = {
 export type Role = {
   title: string
   period: string
+  items?: string[]
 }
 
 export const profile = {
@@ -132,14 +133,60 @@ export const experience = {
     'Integração com banco de dados',
     'Correções e melhorias nos sistemas da empresa',
   ],
-  previous: [{ title: 'Estagiário de desenvolvimento', period: 'Janeiro a julho de 2026' }] satisfies Role[],
+  previous: [
+    {
+      title: 'Estagiário de desenvolvimento',
+      period: 'Janeiro a julho de 2026',
+      items: [
+        'Apoio no desenvolvimento e na sustentação de sistemas web em ambiente ágil',
+        'Correção de bugs, suporte técnico e evolução de funcionalidades existentes, com Git',
+      ],
+    },
+  ] satisfies Role[],
+  // Trabalhos públicos feitos na empresa. Só o que está no ar; nada de código ou painel interno.
+  sites: {
+    title: 'Sites que desenvolvi na J2K',
+    intro: 'Para o SNDesk, software de atendimento da J2K. Os dois estão no ar e são usados pela empresa.',
+    items: [
+      {
+        id: 'sndesk-landing',
+        name: 'Landing page do SNDesk',
+        link: { label: 'lp.sndesk.com.br', href: 'https://lp.sndesk.com.br' },
+        summary:
+          'Site de marketing e captação de leads, com páginas por segmento e por funcionalidade, formulários de demonstração em etapas, WhatsApp e página de LGPD para pedido de remoção de dados. Sistema de design próprio em CSS e deploy automático a cada envio ao GitHub.',
+        stack: 'Laravel, Blade, CSS próprio, Laravel Mix',
+        image: { src: '/projects/sndesk-landing.jpg', alt: 'Página inicial da landing page do SNDesk' },
+      },
+      {
+        id: 'sndesk-blog',
+        name: 'Blog do SNDesk',
+        link: { label: 'blog.sndesk.com.br', href: 'https://blog.sndesk.com.br' },
+        summary:
+          'CMS feito do zero: painel de posts, temas e usuários, editor com rascunho automático, comentários, curtidas, avaliações, newsletter e perfis com endereço preenchido pela ViaCEP.',
+        stack: 'Laravel, MySQL, Blade, Bootstrap 5, Quill',
+        image: { src: '/projects/sndesk-blog.jpg', alt: 'Página inicial do blog do SNDesk' },
+      },
+    ],
+  },
 }
 
 export const education = {
   period: 'Formação, 2023 a 2026',
   course: 'Análise e Desenvolvimento de Sistemas',
   school: 'FATEC Itapetininga',
-  note: 'Trabalho de graduação: VEEZ, aprovado com nota 9,0.',
+  detail: 'Curso Superior de Tecnologia, de agosto de 2023 a agosto de 2026. Concluído.',
+  thesis: {
+    label: 'Trabalho de graduação',
+    name: 'VEEZ',
+    summary:
+      'App de transporte escolar por vans, com rastreamento da rota em tempo real, chat entre responsáveis e motoristas e pagamento de mensalidades por Pix e cartão.',
+    facts: [
+      { label: 'Nota', value: '9,0' },
+      { label: 'Equipe', value: '3 pessoas' },
+      { label: 'Período', value: 'Fev. a jun. de 2026' },
+    ],
+    link: { label: 'Ver o projeto', href: '#projeto-veez' },
+  },
 }
 
 // Cada item é um parágrafo da seção Sobre.

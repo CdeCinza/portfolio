@@ -96,41 +96,42 @@ function ProjectRow({ project, defaultOpen }: { project: Project; defaultOpen: b
       </div>
 
       {/* Ao abrir, o conteúdo entra com um fade curto (ver .project-details em index.css). */}
+      {/* Imagens na largura toda e o texto em duas colunas abaixo, para nenhum lado sobrar vazio. */}
       <div id={detailsId} hidden={!open} className="project-details mt-7">
-        <div className="flex flex-wrap gap-8">
-          {images.length > 0 && (
-            <figure className="m-0 min-w-0 flex-[3_1_480px]">
-              {project.imageFormat === 'phone' ? <PhoneGallery images={images} /> : <DesktopGallery images={images} />}
-              {project.imagesCaption && (
-                <figcaption className="mt-3 text-sm text-slate-soft">{project.imagesCaption}</figcaption>
-              )}
-            </figure>
-          )}
-          <div
-            className={`fx-details-text min-w-0 ${images.length > 0 ? 'flex-[2_1_300px]' : 'flex-1 sm:columns-2 sm:gap-12'}`}
-            style={{ '--i': 1 } as CSSProperties}
-          >
-            <ul className="list-disc pl-5 leading-8 text-slate">
-              {project.highlights.map((item) => (
-                <li key={item}>{item}</li>
-              ))}
-            </ul>
-            <div className="break-inside-avoid">
-              {project.challenge && (
-                <p className="mt-5 text-[15px] leading-relaxed text-pretty text-slate">{project.challenge}</p>
-              )}
-              {project.note && (
-                <p className="mt-5 text-[15px] leading-relaxed text-pretty text-slate">{project.note}</p>
-              )}
-              <p className="mt-4 text-sm text-slate-soft">{project.stack.join(', ')}</p>
-              {project.repo && (
-                <p className="mt-4">
-                  <TextLink href={project.repo.href} tone="light" external>
-                    {project.repo.label}
-                  </TextLink>
-                </p>
-              )}
-            </div>
+        {images.length > 0 && (
+          <figure className="m-0">
+            {project.imageFormat === 'phone' ? <PhoneGallery images={images} /> : <DesktopGallery images={images} />}
+            {project.imagesCaption && (
+              <figcaption className="mt-3 text-sm text-slate-soft">{project.imagesCaption}</figcaption>
+            )}
+          </figure>
+        )}
+        <div
+          className="fx-details-text mt-8 grid grid-cols-1 gap-x-12 gap-y-6 md:grid-cols-2"
+          style={{ '--i': images.length > 0 ? 2 : 0 } as CSSProperties}
+        >
+          <ul className="list-disc pl-5 leading-8 text-slate">
+            {project.highlights.map((item) => (
+              <li key={item}>{item}</li>
+            ))}
+          </ul>
+          <div>
+            {project.challenge && (
+              <p className="text-[15px] leading-relaxed text-pretty text-slate">{project.challenge}</p>
+            )}
+            {project.note && (
+              <p className={`text-[15px] leading-relaxed text-pretty text-slate ${project.challenge ? 'mt-4' : ''}`}>
+                {project.note}
+              </p>
+            )}
+            <p className="mt-4 text-sm text-slate-soft">{project.stack.join(', ')}</p>
+            {project.repo && (
+              <p className="mt-4">
+                <TextLink href={project.repo.href} tone="light" external>
+                  {project.repo.label}
+                </TextLink>
+              </p>
+            )}
           </div>
         </div>
       </div>
@@ -138,19 +139,17 @@ function ProjectRow({ project, defaultOpen }: { project: Project; defaultOpen: b
   )
 }
 
+// Tela principal grande à esquerda e as outras empilhadas à direita, na mesma altura dela.
 function DesktopGallery({ images }: { images: Image[] }) {
   const [cover, ...extras] = images
+  if (extras.length === 0) return <Screenshot image={cover} border="border-rule" order={0} />
   return (
-    <>
-      <Screenshot image={cover} border="border-rule" order={0} />
-      {extras.length > 0 && (
-        <div className="mt-3 grid grid-cols-2 gap-3">
-          {extras.map((image, index) => (
-            <Screenshot key={image.src} image={image} border="border-rule" order={index + 1} />
-          ))}
-        </div>
-      )}
-    </>
+    <div className="grid grid-cols-2 gap-3 md:grid-cols-[2fr_1fr]">
+      <Screenshot image={cover} border="border-rule" order={0} fill className="col-span-2 md:col-span-1 md:row-span-2" />
+      {extras.map((image, index) => (
+        <Screenshot key={image.src} image={image} border="border-rule" order={index + 1} />
+      ))}
+    </div>
   )
 }
 
@@ -171,11 +170,16 @@ type ScreenshotProps = {
   format?: 'desktop' | 'phone'
   // Posição na galeria: escalona a entrada quando os detalhes abrem.
   order?: number
+  // A partir do tablet, ocupa toda a altura da célula da grade em vez de manter a proporção.
+  fill?: boolean
 }
 
 // Abre a imagem em tamanho real numa nova aba, para quem quiser ver os detalhes da tela.
-function Screenshot({ image, border, className = '', format = 'desktop', order = 0 }: ScreenshotProps) {
-  const size = format === 'phone' ? { width: 780, height: 1688, ratio: 'aspect-[390/844] rounded-2xl' } : { width: 1440, height: 900, ratio: 'aspect-[16/10] rounded-xl' }
+function Screenshot({ image, border, className = '', format = 'desktop', order = 0, fill = false }: ScreenshotProps) {
+  const size =
+    format === 'phone'
+      ? { width: 780, height: 1688, ratio: 'aspect-[390/844] rounded-2xl' }
+      : { width: 1440, height: 900, ratio: `aspect-[16/10] rounded-xl ${fill ? 'md:h-full md:aspect-auto' : ''}` }
   return (
     <a
       href={image.src}
