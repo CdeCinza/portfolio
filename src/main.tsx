@@ -11,7 +11,7 @@ const app = (
 )
 
 // Em produção o HTML já vem pré-renderizado; no `npm run dev` ele é montado do zero.
-if (root.hasChildNodes()) {
+if (root.firstElementChild) {
   hydrateRoot(root, app)
 } else {
   createRoot(root).render(app)

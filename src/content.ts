@@ -33,7 +33,7 @@ export const profile = {
   shortName: 'Matheus Vieira',
   role: 'Desenvolvedor PHP/Laravel Full Stack',
   intro:
-    'Faço parte do time de desenvolvimento do SNDesk, software de atendimento da J2K Sistemas, onde trabalho do back-end à interface em novas funcionalidades, dashboards e melhorias do sistema.',
+    'Tenho experiência no desenvolvimento de sistemas web com PHP e Laravel, da implementação de regras de negócio à criação de interfaces e dashboards.',
   email: 'matheusmarques9096@gmail.com',
   location: 'Itapetininga, SP',
   // Gerado por `npm run curriculo` a partir de curriculo/curriculo.html
@@ -42,7 +42,7 @@ export const profile = {
   github: 'https://github.com/CdeCinza',
   linkedin: 'https://www.linkedin.com/in/matheus-marques-fernandes-vieiracln/',
   facts: [
-    { label: 'Atualmente', value: 'Desenvolvedor full stack na J2K Sistemas' },
+    { label: 'Experiência profissional', value: '1 ano na J2K Sistemas' },
     { label: 'Stack principal', value: 'PHP, Laravel, Livewire e MySQL' },
     { label: 'Formação', value: 'Análise e Desenvolvimento de Sistemas, FATEC Itapetininga' },
     { label: 'Local', value: 'Itapetininga, SP' },
@@ -129,8 +129,8 @@ export const otherProjects: Project[] = [
 
 export const experience = {
   company: 'J2K Sistemas, Itapetininga',
-  current: { title: 'Desenvolvedor Full Stack', period: 'Junho de 2026 até hoje' } satisfies Role,
-  team: 'Time de desenvolvimento do SNDesk, software de atendimento da J2K',
+  developer: { title: 'Desenvolvedor Full Stack', period: 'Junho a novembro de 2026' } satisfies Role,
+  team: 'Atuei no time de desenvolvimento do SNDesk, software de atendimento da J2K',
   responsibilities: [
     'Desenvolvimento de funcionalidades, telas e dashboards do SNDesk em PHP e Laravel',
     'Rotas, controllers e validações',
@@ -140,17 +140,17 @@ export const experience = {
   previous: [
     {
       title: 'Estagiário de desenvolvimento',
-      period: 'Janeiro a julho de 2026',
+      period: 'Novembro de 2025 a junho de 2026',
       items: [
         'Apoio no desenvolvimento e na sustentação de sistemas web em ambiente ágil',
         'Correção de bugs, suporte técnico e evolução de funcionalidades existentes, com Git',
       ],
     },
   ] satisfies Role[],
-  // Trabalhos públicos feitos na empresa. Só o que está no ar; nada de código ou painel interno.
+  // Projetos públicos desenvolvidos durante a passagem pela empresa.
   sites: {
     title: 'Sites que desenvolvi na J2K',
-    intro: 'Além do trabalho no SNDesk, desenvolvi estes sites para produtos da empresa. Todos estão no ar.',
+    intro: 'Além de contribuir com o sistema de atendimento, desenvolvi páginas de divulgação, um blog com painel administrativo e ferramentas para o RH.',
     items: [
       {
         id: 'sndesk-landing',
@@ -204,8 +204,8 @@ export const education = {
 
 // Cada item é um parágrafo da seção Sobre.
 export const about = [
-  'Comecei a estudar desenvolvimento web em 2021, pelo front-end. Na faculdade de Análise e Desenvolvimento de Sistemas passei para o full stack, e na J2K Sistemas isso virou trabalho: entrei como estagiário em janeiro de 2026, fui efetivado como desenvolvedor full stack em junho e hoje faço parte do time que desenvolve o SNDesk.',
-  'Fora do expediente, uso projetos próprios para ir além do dia a dia. No Taskly, aprofundo Laravel e Livewire em um sistema completo de tarefas e chamados. No Elo, separo uma API em Laravel de uma interface em Next.js, com testes em PHPUnit e Playwright. E o VEEZ, app em React Native, foi meu trabalho de graduação, aprovado com nota 9,0.',
+  'Comecei a estudar desenvolvimento web em 2021, pelo front-end. Na faculdade de Análise e Desenvolvimento de Sistemas, passei para o full stack. Entrei na J2K Sistemas como estagiário em novembro de 2025 e fui efetivado como desenvolvedor full stack em junho de 2026. Durante meu ano na empresa, contribuí para o desenvolvimento do SNDesk.',
+  'Também uso projetos próprios para aprofundar minhas habilidades. No Taskly, trabalho com Laravel e Livewire em um sistema completo de tarefas e chamados. No Elo, separo uma API em Laravel de uma interface em Next.js, com testes em PHPUnit e Playwright. O VEEZ, app em React Native, foi meu trabalho de graduação, aprovado com nota 9,0.',
 ]
 
 export const skills = [
@@ -217,9 +217,27 @@ export const skills = [
 
 export const tools = 'Ferramentas e testes: Alpine.js, Stripe, PHPUnit e Playwright.'
 
+export const courses = [
+  {
+    title: 'Desenvolvimento Web Avançado com PHP, Laravel e Vue.js',
+    provider: { label: 'Udemy · Jorge Sant Ana', href: 'https://www.udemy.com/course/curso-completo-do-desenvolvedor-laravel/' },
+    duration: '57 horas',
+    summary: 'Recursos avançados de PHP, ecossistema Laravel e front-end reativo.',
+    image: '/cursos/udemy-laravel.jpg',
+  },
+  {
+    title: 'Curso de HTML5 e CSS3',
+    provider: { label: 'Dev em Dobro', href: 'https://www.devemdobro.com/' },
+    duration: '6 horas',
+    summary: 'Interfaces web responsivas e estruturação semântica.',
+    image: '/cursos/dev-em-dobro.webp',
+  },
+]
+
 export const navigation: Link[] = [
   { label: 'Projetos', href: '#projetos' },
   { label: 'Experiência', href: '#experiencia' },
   { label: 'Sobre', href: '#sobre' },
+  { label: 'Cursos', href: '#cursos' },
   { label: 'Contato', href: '#contato' },
 ]

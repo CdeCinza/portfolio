@@ -16,8 +16,8 @@ export function Experience() {
             className="min-w-0 flex-[3_1_520px] rounded-[20px] border border-edge bg-panel p-6 sm:p-10"
           >
             <p className="text-[15px] text-fog">{experience.company}</p>
-            <h3 className="mt-2.5 text-3xl leading-[1.05] font-bold sm:text-[40px]">{experience.current.title}</h3>
-            <p className="mt-2 text-lg text-mist">{experience.current.period}</p>
+            <h3 className="mt-2.5 text-3xl leading-[1.05] font-bold sm:text-[40px]">{experience.developer.title}</h3>
+            <p className="mt-2 text-lg text-mist">{experience.developer.period}</p>
             <p className="mt-4 inline-block rounded-lg border border-edge px-3 py-1.5 text-[15px] text-sky">
               {experience.team}
             </p>
